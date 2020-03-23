@@ -14,10 +14,7 @@ Before you get started, make sure you are using USWDS v2 or newer. Civic will no
 
 ```html
 <script src="https://typetura-civic.s3.us-east-2.amazonaws.com/typetura.js"></script>
-<link
-	rel="stylesheet"
-	href="https://typetura-civic.s3.us-east-2.amazonaws.com/civic.css"
-/>
+<link rel="stylesheet" href="https://typetura-civic.s3.us-east-2.amazonaws.com/civic.css" />
 ```
 
 ## Advantages of Typetura
