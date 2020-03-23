@@ -12,10 +12,10 @@ Before you get started, make sure you are using USWDS v2 or newer. Civic will no
 
 3. Add links inside your `<head>` tag. This may look something like this, but note that the locations of the files may be different in your project:
 
-   ```html
-   	<script src="/typetura/typetura.js"></script>
-   	<link rel="stylesheet" href="/typetura/civic.css" />
-   ```
+```html
+<script async src="uswds/js/uswds.js"></script>
+<script src="https://typetura-civic.s3.us-east-2.amazonaws.com/typetura.js"></script>
+```
 
 ## Advantages of Typetura
 

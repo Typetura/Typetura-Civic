@@ -41,6 +41,9 @@ function typeturaInit(el) {
 var typeturaContexts = [
   ":root",
   ".typetura",
+  "h1",
+  "h2",
+  "h3",
   "article",
   "aside",
   "main",
