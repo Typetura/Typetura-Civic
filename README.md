@@ -2,7 +2,7 @@
 
 At [Typetura](https://typetura.com/) our business is built on increasing accessibility and improving text-based communication on the web. Prompted by the COVID-19 outbreak, we have been looking for better ways to serve our community. We created Civic as a way for United States government organizations to more quickly and easily add Typetura to their websites so that they can better communicate to the public, on more devices, with more design flexibility.
 
-## 📦 Installing Civic
+## 📦 Using Civic
 
 Before you get started, make sure you are using USWDS v2 or newer. Civic will not work on websites built with v1.
 
