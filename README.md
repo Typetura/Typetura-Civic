@@ -1,8 +1,8 @@
-# Typetura Civic
+# 🇺🇸 Typetura Civic
 
 At [Typetura](https://typetura.com/) our business is built on increasing accessibility and improving text-based communication on the web. Prompted by the COVID-19 outbreak, we have been looking for better ways to serve our community. We created Civic as a way for United States government organizations to more quickly and easily add Typetura to their websites so that they can better communicate to the public, on more devices, with more design flexibility.
 
-## Installing Civic
+## 📦 Installing Civic
 
 Before you get started, make sure you are using USWDS v2 or newer. Civic will not work on websites built with v1.
 
@@ -17,11 +17,11 @@ Before you get started, make sure you are using USWDS v2 or newer. Civic will no
 <link rel="stylesheet" href="https://typetura-civic.s3.us-east-2.amazonaws.com/civic.css" />
 ```
 
-## Advantages of Typetura
+## 🌈 Advantages of Typetura
 
 Typetura is a fluid typesetting technology. It allows your typography to scale to any layout on any device with minimal code including the elimination of breakpoints. It also preserves user preferences for type, helping those who prefer large text to read your content. As a result, you can worry less about type and focus on communicating to the public in more places.
 
-## License
+## 🖋 License
 
 Copyright © 2018–2020 [Typetura LLC](https://typetura.com/). All rights reserved. Commercial licenses that allow modification, custom integrations, enhanced features, and/or support are available by contacting [info@typetura.com](mailto:info@typetura.com).
 
