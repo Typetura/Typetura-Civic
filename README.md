@@ -1,4 +1,4 @@
-# 🇺🇸 Typetura Civic
+<img width="914" alt="Typetura + USWDS" src="https://user-images.githubusercontent.com/377189/77721751-f727f000-6fa8-11ea-9d2d-763cbd661db9.png">
 
 At [Typetura](https://typetura.com/) our business is built on increasing accessibility and improving text-based communication on the web. Prompted by the COVID-19 outbreak, we have been looking for better ways to serve our community. We created Civic as a way for United States government organizations to more quickly and easily add Typetura to their websites so that they can better communicate to the public, on more devices, with more design flexibility.
 
