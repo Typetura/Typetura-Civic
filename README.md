@@ -15,7 +15,7 @@ Add links inside your `<head>` tag.
 
 That’s it! Your headlines are now fluid.
 
-Alternatively, you can download [the latest release](https://github.com/typetura/Typetura-Civic/releases/latest) and link those files to your document.
+Alternatively, you can download [the latest release](https://github.com/typetura/Typetura-Civic/releases/latest) and use those files on your website.
 
 ## 🌈 Advantages of Typetura
 
