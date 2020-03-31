@@ -6,16 +6,16 @@ At [Typetura](https://typetura.com/) our business is built on increasing accessi
 
 Before you get started, make sure you are using USWDS v2 or newer. Civic will not work on websites built with v1.
 
-1. Download the latest version of Civic
-
-2. Unzip the package and place it into your project
-
-3. Add links inside your `<head>` tag.
+Add links inside your `<head>` tag.
 
 ```html
 <script src="https://typetura-civic.s3.us-east-2.amazonaws.com/typetura.js"></script>
 <link rel="stylesheet" href="https://typetura-civic.s3.us-east-2.amazonaws.com/civic.css" />
 ```
+
+That’s it! Your headlines are now fluid.
+
+Alternatively, you can download [the latest release](https://github.com/typetura/Typetura-Civic/releases/latest) and link those files to your document.
 
 ## 🌈 Advantages of Typetura
 
