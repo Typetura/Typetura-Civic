@@ -24,6 +24,7 @@ function typeturaInit(el) {
     }
   }
   typetura();
+  typetura();
 
   // Create a stylesheet for typetura's custom properties
   var stylesheet = document.createElement("style");
@@ -47,7 +48,7 @@ var typeturaContexts = [
   "article",
   "aside",
   "main",
-  "section"
+  "section",
 ];
 
 // Initiate Typetura on page load
