@@ -9,6 +9,8 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "astro": "^1.0.0-rc.2"
+    "@uswds/uswds": "^3.1.0",
+    "astro": "^1.0.0-rc.2",
+    "sass": "^1.54.9"
   }
 }
