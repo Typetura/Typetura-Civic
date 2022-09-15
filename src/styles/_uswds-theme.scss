@@ -1,0 +1,5 @@
+@use "uswds-core" with (
+  $theme-image-path: "/assets/img",
+  $theme-show-compile-warnings: false,
+  $theme-show-notifications: false,
+);
