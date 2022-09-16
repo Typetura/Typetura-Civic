@@ -1,7 +1,5 @@
 ---
 import '../styles/styles.scss'
-import { uswds } from '/@uswds/uswds/dist/js/uswds.min.js';
-// import { uswds } from '../../public/assets/js/uswds.min.js';
 
 import Banner from '../components/Banner.astro';
 ---
@@ -14,7 +12,10 @@ import Banner from '../components/Banner.astro';
 	</head>
 	<body>
 		<Banner />
-		
 		<h1>Astro</h1>
+
+        <script>
+            import '/node_modules/@uswds/uswds/dist/js/uswds.min.js';
+        </script>
 	</body>
 </html>
