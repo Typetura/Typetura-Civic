@@ -1,0 +1,19 @@
+---
+import '../styles/styles.scss'
+
+import Banner from '../components/uswds/Banner.astro'
+import Head from '../components/Head.astro'
+---
+
+<html lang="en">
+	<Head />
+	<body>
+		<Banner />
+
+		<slot />
+
+        <script>
+            import '/node_modules/@uswds/uswds/dist/js/uswds.min.js';
+        </script>
+	</body>
+</html>
