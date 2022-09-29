@@ -1,19 +1,21 @@
 ---
-import '../styles/styles.scss'
+import Banner from '../components/uswds/Banner.astro';
+import Head from '../components/Head.astro';
 
-import Banner from '../components/uswds/Banner.astro'
-import Head from '../components/Head.astro'
+import '../styles/styles.scss';
+
+const { title } = Astro.props;
 ---
 
 <html lang="en">
-	<Head />
+	<Head title={title} />
 	<body>
 		<Banner />
 
 		<slot />
 
-        <script>
-            import '/node_modules/@uswds/uswds/dist/js/uswds.min.js';
-        </script>
+		<script>
+			import '/node_modules/@uswds/uswds/dist/js/uswds.min.js';
+		</script>
 	</body>
 </html>

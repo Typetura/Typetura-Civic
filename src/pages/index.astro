@@ -1,8 +1,8 @@
 ---
-import Layout from "../layouts/Default.astro"
-description: "Lorem ipsum dolor sit amet"
+const title = '';
+
+import astroConfig from '../../astro.config.mjs';
+import Layout from '../layouts/Default.astro';
 ---
 
-<Layout>
-	<h1>Astro</h1>
-</Layout>
+<Layout title={title} />

@@ -1,4 +1,7 @@
 import { defineConfig } from 'astro/config';
 
-// https://astro.build/config
-export default defineConfig({});
+export default defineConfig({
+  siteName: 'Civic Website', // Name your project here
+  domain: 'gov', // `gov` or `mil`?
+  language: 'en', // `en` for English, `es` for Spanish
+});

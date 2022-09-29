@@ -1,9 +1,9 @@
 ---
-const { domain = 'gov' } = Astro.props;
+import astroConfig from '/astro.config.mjs';
 ---
 
 {
-	domain === 'gov' && (
+	(astroConfig.domain = 'gov' && (
 		<section class="usa-banner" aria-label="Official government website">
 			<div class="usa-accordion">
 				<header class="usa-banner__header">
@@ -92,5 +92,5 @@ const { domain = 'gov' } = Astro.props;
 				</div>
 			</div>
 		</section>
-	)
+	))
 }
