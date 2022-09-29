@@ -1,4 +1,8 @@
-@forward "uswds-theme";
-@forward "uswds";
+@forward 'uswds-theme';
+@forward 'uswds';
 
-@forward "uswds-utilities/src/styles";
+@forward 'uswds-utilities/src/styles';
+
+foo {
+	bar: baz;
+}
