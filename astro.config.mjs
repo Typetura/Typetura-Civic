@@ -16,5 +16,5 @@ export default defineConfig({
     },
     'standalone link': '#link',
   },
-  search: false,
+  search: true,
 });
