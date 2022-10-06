@@ -10,6 +10,15 @@
     // Enable stricter transpilation for better output.
     "isolatedModules": true,
     // Add type definitions for our Astro runtime.
-    "types": ["astro/client"]
+    "types": ["astro/client"],
+
+    "baseUrl": ".",
+    "paths": {
+      "@config": ["astro.config.mjs"],
+      "@component/*": ["src/components/*"],
+      "@helper/*": ["src/components/helpers/*"],
+      "@uswds/*": ["src/components/uswds/*"],
+      "@layout/*": ["src/layouts/*"]
+    }
   }
 }
