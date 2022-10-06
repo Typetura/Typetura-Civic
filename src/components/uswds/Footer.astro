@@ -1,0 +1,97 @@
+---
+import Name from '@helper/Name.astro';
+import Email from '@helper/Email.astro';
+import Phone from '@helper/Phone.astro';
+import astroConfig from '@config';
+---
+
+<footer class="usa-footer">
+	<div class="grid-container usa-footer__return-to-top">
+		<a href="#">Return to top</a>
+	</div>
+	<div class="usa-footer__secondary-section">
+		<div class="grid-container">
+			<div class="grid-row grid-gap">
+				<div class="usa-footer__logo grid-row mobile-lg:grid-col-6 mobile-lg:grid-gap-2">
+					<div class="mobile-lg:grid-col-auto">
+						<img
+							class="usa-footer__logo-img"
+							src={astroConfig.siteLogo}
+							alt={astroConfig.siteName}
+						/>
+					</div>
+					<div class="mobile-lg:grid-col-auto">
+						<p class="usa-footer__logo-heading"><Name /></p>
+					</div>
+				</div>
+				<div class="usa-footer__contact-links mobile-lg:grid-col-6">
+					<div class="usa-footer__social-links grid-row grid-gap-1">
+						<div class="grid-col-auto">
+							<a class="usa-social-link" href="javascript:void(0);"
+								><img
+									class="usa-social-link__icon"
+									src="/assets/img/usa-icons/facebook.svg"
+									alt="Facebook"
+								/>
+							</a>
+						</div>
+						<div class="grid-col-auto">
+							<a class="usa-social-link" href="javascript:void(0);"
+								><img
+									class="usa-social-link__icon"
+									src="/assets/img/usa-icons/twitter.svg"
+									alt="Twitter"
+								/>
+							</a>
+						</div>
+						<div class="grid-col-auto">
+							<a class="usa-social-link" href="javascript:void(0);"
+								><img
+									class="usa-social-link__icon"
+									src="/assets/img/usa-icons/youtube.svg"
+									alt="YouTube"
+								/>
+							</a>
+						</div>
+						<div class="grid-col-auto">
+							<a class="usa-social-link" href="javascript:void(0);"
+								><img
+									class="usa-social-link__icon"
+									src="/assets/img/usa-icons/instagram.svg"
+									alt="Instagram"
+								/>
+							</a>
+						</div>
+						<div class="grid-col-auto">
+							<a class="usa-social-link" href="javascript:void(0);"
+								><img
+									class="usa-social-link__icon"
+									src="/assets/img/usa-icons/rss_feed.svg"
+									alt="RSS"
+								/>
+							</a>
+						</div>
+					</div>
+					{
+						(astroConfig.phone || astroConfig.email) && (
+							<address class="usa-footer__address">
+								<div class="usa-footer__contact-info grid-row grid-gap">
+									{astroConfig.phone && (
+										<div class="grid-col-auto">
+											<Phone />
+										</div>
+									)}
+									{astroConfig.email && (
+										<div class="grid-col-auto">
+											<Email />
+										</div>
+									)}
+								</div>
+							</address>
+						)
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>

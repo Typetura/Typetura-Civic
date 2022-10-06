@@ -1,0 +1,5 @@
+---
+import astroConfig from '@config';
+---
+
+{astroConfig.email && <a href={`tel:${astroConfig.email}`}>{astroConfig.email}</a>}
