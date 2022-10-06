@@ -1,4 +1,5 @@
 ---
+import astroConfig from '/astro.config.mjs';
 import Banner from '../components/uswds/Banner.astro';
 import Head from '../components/Head.astro';
 
@@ -7,7 +8,7 @@ import '../styles/styles.scss';
 const { title } = Astro.props;
 ---
 
-<html lang="en">
+<html lang={astroConfig.lang}>
 	<Head title={title} />
 	<body>
 		<Banner />
