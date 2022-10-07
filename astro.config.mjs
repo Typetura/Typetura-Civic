@@ -19,7 +19,7 @@ export default defineConfig({
     },
     'standalone link': '#link',
   },
-  search: true,
+  search: false,
 
   // -----------------------------------------------------
   // Footer configuration
