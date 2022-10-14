@@ -1,6 +1,8 @@
 ---
 import astroConfig from '@config';
 import Name from '@helper/Name.astro';
+
+const items = ["Dog", "Cat", "Platypus"];
 ---
 
 <div class="usa-overlay"></div>
@@ -16,56 +18,31 @@ import Name from '@helper/Name.astro';
 			<button type="button" class="usa-nav__close">
 				<img src="/assets/img/usa-icons/close.svg" role="img" alt="Close" />
 			</button>
-			{astroConfig.menu &&
+			{astroConfig.headerLinks &&
 				<ul class="usa-nav__primary usa-accordion">
-					<li class="usa-nav__primary-item">
-						<button
-							type="button"
-							class="usa-accordion__button usa-nav__link usa-current"
-							aria-expanded="false"
-							aria-controls="basic-nav-section-one"
-						>
-							<span>&lt;Current section&gt;</span>
-						</button>
-						<ul id="basic-nav-section-one" class="usa-nav__submenu">
-							<li class="usa-nav__submenu-item">
-								<a href=""><span>&lt;Navigation link&gt;</span></a>
-							</li>
-							<li class="usa-nav__submenu-item">
-								<a href=""><span>&lt;Navigation link&gt;</span></a>
-							</li>
-							<li class="usa-nav__submenu-item">
-								<a href=""><span>&lt;Navigation link&gt;</span></a>
-							</li>
-							<li class="usa-nav__submenu-item">
-								<a href=""><span>&lt;Navigation link&gt;</span></a>
-							</li>
-						</ul>
-					</li>
-					<li class="usa-nav__primary-item">
-						<button
-							type="button"
-							class="usa-accordion__button usa-nav__link"
-							aria-expanded="false"
-							aria-controls="basic-nav-section-two"
-						>
-							<span>&lt;Section&gt;</span>
-						</button>
-						<ul id="basic-nav-section-two" class="usa-nav__submenu">
-							<li class="usa-nav__submenu-item">
-								<a href=""><span>&lt;Navigation link&gt;</span></a>
-							</li>
-							<li class="usa-nav__submenu-item">
-								<a href=""><span>&lt;Navigation link&gt;</span></a>
-							</li>
-							<li class="usa-nav__submenu-item">
-								<a href=""><span>&lt;Navigation link&gt;</span></a>
-							</li>
-						</ul>
-					</li>
-					<li class="usa-nav__primary-item">
-						<a href="" class="usa-nav-link"><span>&lt;Simple link&gt;</span></a>
-					</li>
+					{astroConfig.headerLinks.map(item => (
+						<li class="usa-nav__primary-item">
+							{item.link ?
+								<a href={item.link} class="usa-nav-link"><span>{item.text}</span></a>
+								:
+								<button
+									type="button"
+									class="usa-accordion__button usa-nav__link"
+									aria-expanded="false"
+									aria-controls={`basic-nav-section-${item.text.toLowerCase().replace(/ /g, '-')}`}
+								>
+									<span>{item.text}</span>
+								</button>
+								<ul id={`basic-nav-section-${item.text.toLowerCase().replace(/ /g, '-')}`} class="usa-nav__submenu">
+									{item.submenu.map(submenu => (
+										<li class="usa-nav__submenu-item">
+											<a href={submenu.link}><span>{submenu.text}</span></a>
+										</li>
+									))}
+								</ul>
+							}
+						</li>
+					))}
 				</ul>
 			}
 			{astroConfig.search &&

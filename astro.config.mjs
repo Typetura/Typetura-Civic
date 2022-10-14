@@ -11,14 +11,46 @@ export default defineConfig({
   header: 'basic', // `basic` or `extended`
 
   // Define your website’s menu. Maximum one level deep.
-  menu: {
-    'has submenu': {
-      'item one': '#item',
-      'item two': '#item',
-      'item three': '#item',
+  headerLinks: [
+    {
+      text: 'Section One',
+      submenu: [
+        {
+          text: 'Link',
+          link: './',
+        },
+        {
+          text: 'Link',
+          link: './',
+        },
+        {
+          text: 'Link',
+          link: './',
+        },
+      ]
     },
-    'standalone link': '#link',
-  },
+    {
+      text: 'Section Two',
+      submenu: [
+        {
+          text: 'Link',
+          link: './',
+        },
+        {
+          text: 'Link',
+          link: './',
+        },
+        {
+          text: 'Link',
+          link: './',
+        },
+      ]
+    },
+    {
+      text: 'Link',
+      link: './',
+    },
+  ],
   search: false,
 
   // -----------------------------------------------------
@@ -39,21 +71,44 @@ export default defineConfig({
   rss: false, // `true` or `false`
 
   // This is only shown in the `big` footer
-  menu: {
-    'topic': {
-      'item one': '#item',
-      'item two': '#item',
-      'item three': '#item',
+  footerLinks: [
+    {
+      text: 'Section One',
+      submenu: [
+        {
+          text: 'Link',
+          link: './',
+        },
+        {
+          text: 'Link',
+          link: './',
+        },
+        {
+          text: 'Link',
+          link: './',
+        },
+      ]
     },
-    'topic': {
-      'item one': '#item',
-      'item two': '#item',
-      'item three': '#item',
+    {
+      text: 'Section Two',
+      submenu: [
+        {
+          text: 'Link',
+          link: './',
+        },
+        {
+          text: 'Link',
+          link: './',
+        },
+        {
+          text: 'Link',
+          link: './',
+        },
+      ]
     },
-    'topic': {
-      'item one': '#item',
-      'item two': '#item',
-      'item three': '#item',
+    {
+      text: 'Link',
+      link: './',
     },
-  },
+  ],
 });
