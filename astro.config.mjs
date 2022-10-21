@@ -62,11 +62,11 @@ export default defineConfig({
 
   social: {
     // Add a link to your social if you have one. If not, use `false`
-    facebook: false,
-    twitter: false,
-    youtube: false,
-    instagram: false,
-    linkedin: false,
+    facebook: 'https://www.facebook.com/gsa',
+    twitter: 'https://twitter.com/usgsa',
+    youtube: 'https://www.youtube.com/usgsa',
+    instagram: 'false',
+    linkedin: 'https://www.linkedin.com/company/gsa',
   },
   rss: false, // `true` or `false`
 
