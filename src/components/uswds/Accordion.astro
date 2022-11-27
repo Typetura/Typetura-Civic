@@ -1,0 +1,18 @@
+---
+const { bordered, multiselectable } = Astro.props;
+
+let classList = "usa-accordion";
+let dataTags = {};
+
+if(bordered) {
+    classList = classList + " usa-accordion--bordered";
+}
+if(multiselectable) {
+    classList = classList + " usa-accordion--multiselectable";
+    dataTags = {'data-allow-multiple': true};
+}
+---
+<div class={classList} {...dataTags}>
+    <slot/>
+</div>
+  

@@ -1,0 +1,21 @@
+---
+const { heading } = Astro.props;
+const id = 'a' + Math.random().toString(16).slice(2);
+
+const { expanded } = Astro.props;
+---
+<>
+    <h4 class="usa-accordion__heading">
+        <button
+            type="button"
+            class="usa-accordion__button"
+            aria-expanded={expanded}
+            aria-controls={id}
+        >
+            { heading }
+        </button>
+    </h4>
+    <div id={id} class="usa-accordion__content usa-prose">
+        <slot/>
+    </div>
+</>
