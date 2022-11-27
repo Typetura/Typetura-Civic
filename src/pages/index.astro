@@ -4,18 +4,11 @@ const title = '';
 import astroConfig from '@config';
 import Layout from '@layout/Default.astro';
 
-import Accordion from '@component/uswds/Accordion.astro';
-import AccordionSection from '@component/uswds/AccordionSection.astro';
+import Alert from '@component/uswds/Alert.astro';
 ---
 
 <Layout title={title}>
 	This is content!
-	<Accordion>
-		<AccordionSection heading="Heading!">
-			Some content!
-		</AccordionSection>
-		<AccordionSection heading="Heading two!">
-			Some content!
-		</AccordionSection>
-	</Accordion>
+
+	<Alert status="success">This is stuff</Alert>
 </Layout>

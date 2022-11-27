@@ -1,0 +1,25 @@
+---
+const { heading, status, slim } = Astro.props;
+
+let classList = "usa-alert";
+
+if(status) {
+    classList = classList + ` usa-alert--${status}`;
+} else {
+    classList = classList + ` usa-alert--no-icon usa-alert--info`;
+}
+if(slim) {
+    classList = classList + ` usa-alert--slim`;
+}
+---
+<div class={classList}>
+    <div class="usa-alert__body">
+        { heading &&
+            <h4 class="usa-alert__heading">{heading}</h4>
+        }
+        <p class="usa-alert__text">
+            <slot/>
+        </p>
+    </div>
+</div>
+  
