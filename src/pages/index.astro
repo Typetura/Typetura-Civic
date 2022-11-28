@@ -1,50 +1,9 @@
 ---
-const title = '';
-
-import astroConfig from '@config';
-import Layout from '@layout/Default.astro';
-
+import Alert from '@component/uswds/Alert.astro';
 import ButtonGroup from '@component/uswds/ButtonGroup.astro';
-
-const breadcrumbs = [
-{
-		title: "this is a page",
-		link: "./page-link",
-		current: false,
-	},
-	{
-		title: "this is another page",
-		link: "./page-link-2",
-		current: false,
-	},
-	{
-		title: "this is a third page",
-		current: true,
-	},
-];
+import Layout from '@layout/Default.astro';
 ---
 
-<Layout title={title}>
+<Layout>
 	This is content!
-
-	<ButtonGroup
-		segmented
-		buttons={[
-			{
-				name: 'back',
-				link: './back',
-				outline: true,
-			},
-			{
-				name: 'forward',
-				link: './forward',
-				outline: true,
-			},
-			{
-				name: 'click',
-				link: './click',
-				color: 'secondary',
-			},
-		]}
-	/>
 </Layout>
