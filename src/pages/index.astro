@@ -4,7 +4,7 @@ const title = '';
 import astroConfig from '@config';
 import Layout from '@layout/Default.astro';
 
-import Breadcrumb from '@component/uswds/Breadcrumb.astro';
+import ButtonGroup from '@component/uswds/ButtonGroup.astro';
 
 const breadcrumbs = [
 {
@@ -27,5 +27,24 @@ const breadcrumbs = [
 <Layout title={title}>
 	This is content!
 
-	<Breadcrumb items={breadcrumbs}/>
+	<ButtonGroup
+		segmented
+		buttons={[
+			{
+				name: 'back',
+				link: './back',
+				outline: true,
+			},
+			{
+				name: 'forward',
+				link: './forward',
+				outline: true,
+			},
+			{
+				name: 'click',
+				link: './click',
+				color: 'secondary',
+			},
+		]}
+	/>
 </Layout>

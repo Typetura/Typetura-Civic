@@ -1,0 +1,38 @@
+---
+import Button from "./Button.astro";
+
+const { buttons, segmented } = Astro.props;
+
+let classList = "usa-button-group";
+if(segmented) {
+    classList = classList + " usa-button-group--segmented";
+}
+
+// Data structutre:
+// buttons={[
+// 			{
+// 				name: 'back',
+// 				link: './back',
+// 				outline: true,
+// 			},
+// 			{
+// 				name: 'forward',
+// 				link: './forward',
+// 				outline: true,
+// 			},
+// 			{
+// 				name: 'click',
+// 				link: './click',
+// 				color: 'secondary',
+// 			},
+// 		]}
+
+---
+<ul class={classList}>
+    {buttons.map((item) => (
+        <li class="usa-button-group__item">
+            <Button name={item.name} link={item.link} color={item.color} outline={item.outline} />
+        </li>
+    ))}
+</ul>
+  
