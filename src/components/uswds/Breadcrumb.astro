@@ -1,0 +1,66 @@
+---
+const { items, wrap } = Astro.props;
+
+let classList = "usa-breadcrumb";
+if(wrap) {
+    classList = classList + ` usa-breadcrumb--wrap`;
+}
+
+// Data structutre:
+// const breadcrumbs = [
+// {
+// 		title: "this is a page",
+// 		link: "./page-link",
+// 		current: false, // <--optional
+// 	},
+// 	{
+// 		title: "this is another page",
+// 		link: "./page-link-2",
+// 		current: false, // <--optional
+// 	},
+// 	{
+// 		title: "this is the current page",
+// 		link: "./page-link-3", // <--optional
+// 		current: true,
+// 	},
+// ];
+---
+<nav class={classList} aria-label="Breadcrumbs">
+    <ol
+      vocab="http://schema.org/"
+      typeof="BreadcrumbList"
+      class="usa-breadcrumb__list"
+    >
+        {items.map((item) => (
+            <>
+                {item.current ?
+                    <li
+                        property="itemListElement"
+                        typeof="ListItem"
+                        class="usa-breadcrumb__list-item usa-current"
+                        aria-current="page">
+                        <span property="name">{item.title}</span>
+                        <meta property="position" content={items.indexOf(item) + 1} />
+                    </li>
+                    :
+                    <li
+                        property="itemListElement"
+                        typeof="ListItem"
+                        class="usa-breadcrumb__list-item"
+                    >
+                        <a
+                            property="item"
+                            typeof="WebPage"
+                            href={item.link}
+                            class="usa-breadcrumb__link"
+                        >
+                            <span property="name">{item.title}</span>
+                        </a>
+                        <meta property="position" content={items.indexOf(item) + 1} />
+                    </li>
+                }
+            </>
+        ))}
+    </ol>
+  </nav>
+  
