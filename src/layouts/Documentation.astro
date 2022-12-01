@@ -1,0 +1,79 @@
+---
+import astroConfig from '@config';
+import Banner from '@uswds/Banner.astro';
+import Head from '@component/Head.astro';
+
+import Header from '@uswds/Header.astro';
+import Footer from '@uswds/Footer.astro';
+
+import '../styles/styles.scss';
+
+const { title } = Astro.props;
+---
+
+<html lang={astroConfig.lang}>
+	<Head title={title} />
+	<body>
+		<Banner />
+		<Header />
+
+        <div class="usa-section">
+            <div class="grid-container">
+              <div class="grid-row grid-gap">
+                <div class="usa-layout-docs__sidenav desktop:grid-col-3">
+                  <nav aria-label="Secondary navigation">
+                    <ul class="usa-sidenav">
+                      <li class="usa-sidenav__item"><a href="">Parent link</a></li>
+                      <li class="usa-sidenav__item">
+                        <a href="" class="usa-current">Current page</a>
+                        <ul class="usa-sidenav__sublist">
+                          <li class="usa-sidenav__item"><a href="">Child link</a></li>
+                          <li class="usa-sidenav__item">
+                            <a href="" class="usa-current">Child link</a>
+                            <ul class="usa-sidenav__sublist">
+                              <li class="usa-sidenav__item">
+                                <a href="">Grandchild link</a>
+                              </li>
+                              <li class="usa-sidenav__item">
+                                <a href="">Grandchild link</a>
+                              </li>
+                              <li class="usa-sidenav__item">
+                                <a href="" class="usa-current">Grandchild link</a>
+                              </li>
+                              <li class="usa-sidenav__item">
+                                <a href="">Grandchild link</a>
+                              </li>
+                            </ul>
+                          </li>
+                          <li class="usa-sidenav__item"><a href="">Child link</a></li>
+                          <li class="usa-sidenav__item"><a href="">Child link</a></li>
+                          <li class="usa-sidenav__item"><a href="">Child link</a></li>
+                        </ul>
+                      </li>
+                      <li class="usa-sidenav__item"><a href="">Parent link</a></li>
+                    </ul>
+                  </nav>
+                </div>
+                <main
+                  class="
+                    usa-layout-docs__main
+                    desktop:grid-col-9
+                    usa-prose usa-layout-docs
+                  "
+                  id="main-content"
+                >
+
+                <slot />
+
+                </main>
+              </div>
+            </div>
+          </div>        
+
+		<Footer />
+
+		<script>
+			import '/node_modules/@uswds/uswds/dist/js/uswds.min.js';
+		</script>
+	</body>
+</html>
