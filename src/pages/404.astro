@@ -1,0 +1,62 @@
+---
+import EN from '@helper/EN.astro';
+import ES from '@helper/ES.astro';
+import Button from '@uswds/Button.astro';
+
+import Layout from '@layout/Default.astro';
+---
+
+<Layout title="page not found">
+
+    <div class="usa-section">
+    <div class="grid-container">
+        <div class="grid-row grid-gap">
+        <main class="" id="main-content">
+            <div class="usa-prose">
+            <EN>
+                <h1>Page not found</h1>
+                <p class="usa-intro">
+                    We’re sorry, we can’t find the page you're looking for. It might
+                    have been removed, changed its name, or is otherwise unavailable.
+                </p>
+                <p>
+                    Visit our homepage for helpful tools and resources, or contact us
+                    and we’ll point you in the right direction.
+                </p>
+                <div class="margin-y-5">
+                    <ul class="usa-button-group">
+                    <li class="usa-button-group__item">
+                        <Button name="Visit homepage" link="/"/>
+                    </li>
+                    </ul>
+                </div>
+                <p class="text-base"><strong>Error code:</strong> 404</p>    
+            </EN>
+            <ES>
+                <h1>No se encontró esta página</h1>
+                <p class="usa-intro">
+                  Lo sentimos, pero no podemos encontrar la página que busca. Es
+                  posible que haya sido eliminada, cambiado de nombre o no esté
+                  disponible por ahora.
+                </p>
+                <p>
+                  Visite nuestra página principal para encontrar herramientas y
+                  recursos útiles o contáctenos y lo ayudaremos a encontrar lo que
+                  busca.
+                </p>
+                <div class="margin-y-5">
+                  <ul class="usa-button-group">
+                    <li class="usa-button-group__item">
+                        <Button name="Visite la página principal" link="/"/>
+                    </li>
+                  </ul>
+                </div>
+                <p class="text-base"><strong>Código de error:</strong> 404</p>    
+            </ES>
+            </div>
+        </main>
+        </div>
+    </div>
+    </div>
+    
+</Layout>
