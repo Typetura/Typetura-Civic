@@ -1,0 +1,19 @@
+.civic--return-to-top {
+	background-color: #fff;
+	width: max-content;
+	position: fixed;
+	bottom: 0;
+	right: 2rem;
+	border-radius: 0.25rem 0.25rem 0 0;
+	padding: 0.5rem;
+	box-shadow: 0 -0.125rem 1rem hsl(0deg 0% 0% / 20%);
+	transition: padding 0.2s ease-in-out;
+	text-decoration: none;
+	line-height: 1;
+	&:hover {
+		padding-bottom: 0.75rem;
+	}
+	@media print {
+		display: none;
+	}
+}

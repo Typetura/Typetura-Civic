@@ -2,20 +2,12 @@
 import Name from '@helper/Name.astro';
 import Email from '@helper/Email.astro';
 import Phone from '@helper/Phone.astro';
-import EN from '@helper/EN.astro';
-import ES from '@helper/ES.astro';
+import ReturnToTop from '@civic/ReturnToTop.astro';
 import astroConfig from '@config';
 ---
 
 <footer class="usa-footer">
-	<div class="grid-container usa-footer__return-to-top">
-		<EN>
-			<a href="#">Return to top</a>
-		</EN>
-		<ES>
-			<a href="#">Volver a la cima</a>
-		</ES>
-	</div>
+	<ReturnToTop/>
 	<div class="usa-footer__secondary-section">
 		<div class="grid-container">
 			<div class="grid-row grid-gap">

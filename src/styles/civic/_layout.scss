@@ -1,0 +1,24 @@
+html {
+	@media (prefers-reduced-motion: no-preference) {
+		scroll-behavior: smooth;
+	}
+}
+
+.usa-layout-docs__sidenav {
+	height: min-content;
+	max-height: calc(100vh - 2rem);
+	overflow: auto;
+	position: sticky;
+	top: 1rem;
+	padding-block: 3px;
+	box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	scroll-margin-top: 1rem;
+}
