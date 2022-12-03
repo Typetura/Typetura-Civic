@@ -5,6 +5,7 @@ import Head from '@component/Head.astro';
 import Header from '@uswds/Header.astro';
 import Footer from '@uswds/Footer.astro';
 import Sidenav from '@uswds/Sidenav.astro';
+import Skipnav from '@uswds/Skipnav.astro';
 
 const { frontmatter } = Astro.props;
 
@@ -57,6 +58,7 @@ posts.forEach(post => {
   
 	<Head title={frontmatter.title} />
 	<body>
+        <Skipnav />
 		<Banner />
 		<Header />
 
