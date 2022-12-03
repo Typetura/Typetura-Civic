@@ -1,0 +1,33 @@
+---
+const { outline } = Astro.props;
+---
+
+<ul class="usa-sidenav">
+    {outline.map(child => (
+        <>
+            {child.current ?
+                <>
+                    <li class="usa-sidenav__item"><a href="#main-content" class="usa-current">{child.title}</a>
+                        {child.children.length > 0 &&
+                            <ul class="usa-sidenav__sublist">
+                                {child.children.map(child => (
+                                    <li class="usa-sidenav__item"><a href={child.link}>{child.title}</a>
+                                        {child.children.length > 0 &&
+                                            <ul class="usa-sidenav__sublist">
+                                                {child.children.map(child => (
+                                                    <li class="usa-sidenav__item"><a href={child.link}>{child.title}</a></li>
+                                                ))}
+                                            </ul>
+                                        }
+                                    </li>
+                                ))}
+                            </ul>
+                        }
+                    </li>
+                </>
+                :
+                <li class="usa-sidenav__item"><a href={child.link}>{child.title}</a></li>
+            }
+        </>
+    ))}
+</ul>

@@ -4,6 +4,7 @@ import Banner from '@uswds/Banner.astro';
 import Head from '@component/Head.astro';
 import Header from '@uswds/Header.astro';
 import Footer from '@uswds/Footer.astro';
+import Sidenav from '@uswds/Sidenav.astro';
 
 const { frontmatter } = Astro.props;
 
@@ -25,28 +26,31 @@ const posts = (await Astro.glob('/src/pages/documentation/*.{md,mdx}')).sort(
 );
 
 let outline = [];
-
 posts.forEach(post => {
     let thisPost = {};
-    let thisOutline = [];
+    let thisChildren = [];
     thisPost.title = post.frontmatter.title;
-    thisPost.url = post.url;
+    thisPost.link = post.url;
+    thisPost.current = (post.url === frontmatter.url);
     post.getHeadings().forEach(heading => {
+        let newHeading = {
+            title: heading.text,
+            link: `#${heading.slug}`,
+            children: []
+        }
         if(heading.depth === 1 || heading.depth === 2) {
-            heading.sub = [];
-            thisOutline.push(heading)
+            thisChildren.push(newHeading)
         }
         if(heading.depth === 3) {
-            let prevHeading = thisOutline[thisOutline.length - 1];
+            let prevHeading = thisChildren[thisChildren.length - 1];
             if(prevHeading) {
-                prevHeading.sub.push(heading);
+                prevHeading.children.push(newHeading);
             }
         }
     });
-    thisPost.outline = thisOutline;
+    thisPost.children = thisChildren;
     outline.push(thisPost);
 });
-console.log(outline);
 ---
 
 <html lang={astroConfig.lang}>
@@ -61,39 +65,15 @@ console.log(outline);
 				<div class="grid-row grid-gap">
 					<div class="usa-layout-docs__sidenav desktop:grid-col-3">
 						<nav aria-label="Secondary navigation">
-							<ul class="usa-sidenav">
-
-                {posts.map(post => (
-                  <>
-                    {frontmatter.url === post.url ?
-                      <>
-                        <li class="usa-sidenav__item"><a href="#" class="usa-current">{post.frontmatter.title}</a></li>
-                        <ul class="usa-sidenav__sublist">
-                          {post.getHeadings().map(h => (
-                            <>
-                              {(h.depth <= 2) &&
-                                <li class="usa-sidenav__item">
-                                  <a href=`#${h.slug}`>{h.text}</a>
-                                </li>
-                              }
-                            </>
-                          ))}
-                        </ul>
-                      </>
-                      :
-                      <li class="usa-sidenav__item"><a href={post.url}>{post.frontmatter.title}</a></li>
-                    }
-                  </>
-                ))}
-							</ul>
+                            <Sidenav outline={outline} />
 						</nav>
 					</div>
 					<main
 						class="usa-layout-docs__main desktop:grid-col-9 usa-prose usa-layout-docs"
 						id="main-content"
 					>
-            <h1>{frontmatter.title}</h1>
-            <p class="usa-intro">{frontmatter.intro}</p>
+                        <h1>{frontmatter.title}</h1>
+                        <p class="usa-intro">{frontmatter.intro}</p>
 						<slot />
 					</main>
 				</div>
