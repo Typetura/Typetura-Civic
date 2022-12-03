@@ -23,6 +23,30 @@ pathArray.forEach((i) => {
 const posts = (await Astro.glob('/src/pages/documentation/*.{md,mdx}')).sort(
 	(a, b) => parseInt(a.frontmatter.order) - parseInt(b.frontmatter.order)
 );
+
+let outline = [];
+
+posts.forEach(post => {
+    let thisPost = {};
+    let thisOutline = [];
+    thisPost.title = post.frontmatter.title;
+    thisPost.url = post.url;
+    post.getHeadings().forEach(heading => {
+        if(heading.depth === 1 || heading.depth === 2) {
+            heading.sub = [];
+            thisOutline.push(heading)
+        }
+        if(heading.depth === 3) {
+            let prevHeading = thisOutline[thisOutline.length - 1];
+            if(prevHeading) {
+                prevHeading.sub.push(heading);
+            }
+        }
+    });
+    thisPost.outline = thisOutline;
+    outline.push(thisPost);
+});
+console.log(outline);
 ---
 
 <html lang={astroConfig.lang}>
