@@ -2,9 +2,9 @@
 import astroConfig from '@config';
 import Banner from '@uswds/Banner.astro';
 import Head from '@component/Head.astro';
-
 import Header from '@uswds/Header.astro';
 import Footer from '@uswds/Footer.astro';
+import Skipnav from '@uswds/Skipnav.astro';
 
 const { title } = Astro.props;
 ---
@@ -12,6 +12,7 @@ const { title } = Astro.props;
 <html lang={astroConfig.lang}>
 	<Head title={title} />
 	<body>
+		<Skipnav />
 		<Banner />
 		<Header />
 
