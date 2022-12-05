@@ -3,7 +3,8 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   siteName: 'Civic Website', // Name your project here
   siteLogo: 'icons/logo.svg', // Path to square logo of agency
-  domain: 'gov', // `gov` or `mil`?
+  domain: 'com', // `gov`, `mil`, or `com`?
+    // NOTE `com` will be labeled as not an offical government website.
   lang: 'en', // `en` for English, `es` for Spanish
 
   // -----------------------------------------------------
