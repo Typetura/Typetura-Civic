@@ -1,0 +1,42 @@
+---
+import Button from './Button.astro';
+
+const { title, img, alt, cta, link, media, orientation } = Astro.props;
+
+let classList = 'usa-card';
+let classListMedia = 'usa-card__media';
+
+if (orientation) {
+	classList = classList + ` usa-card--flag usa-card--media-${orientation}`;
+}
+if (media) {
+	classListMedia = classListMedia + ` usa-card__media--${media}`;
+}
+---
+
+<article class={classList}>
+	<div class="usa-card__container">
+		{
+			img && (
+				<div class={classListMedia}>
+					<div class="usa-card__img">
+						<img src={img} alt={alt} />
+					</div>
+				</div>
+			)
+		}
+		<div class="usa-card__header">
+			<h2 class="usa-card__heading">{title}</h2>
+		</div>
+		<div class="usa-card__body">
+			<slot />
+		</div>
+		{
+			cta && (
+				<div class="usa-card__footer">
+					<Button name={cta} link={link} />
+				</div>
+			)
+		}
+	</div>
+</article>
