@@ -1,14 +1,14 @@
 ---
 const { name, link, outline, color } = Astro.props;
 
-let classList = "usa-button";
+let classList = 'usa-button';
 
-if(outline) {
-    classList = classList + " usa-button--outline";
+if (outline) {
+	classList = classList + ' usa-button--outline';
 }
-if(color) {
-    classList = classList + ` usa-button--${color}`;
+if (color) {
+	classList = classList + ` usa-button--${color}`;
 }
-
 ---
-<a href={link} class={classList}>{name}</a>
+
+<a class={classList} href={link}>{name}</a>

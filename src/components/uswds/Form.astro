@@ -1,0 +1,13 @@
+---
+import Button from './Button.astro';
+import ButtonGroup from './ButtonGroup.astro';
+
+const { action, method, submit } = Astro.props;
+---
+
+<form class="usa-form" action={action} method={method}>
+	<slot />
+	<div class="usa-form--submission">
+		<input class="usa-button" type="submit" value={submit || 'Submit'} />
+	</div>
+</form>
