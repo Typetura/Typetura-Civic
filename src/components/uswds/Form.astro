@@ -2,12 +2,19 @@
 import Button from './Button.astro';
 import ButtonGroup from './ButtonGroup.astro';
 
-const { action, method, submit } = Astro.props;
+const { action, method, submit, back } = Astro.props;
 ---
 
 <form class="usa-form" action={action} method={method}>
 	<slot />
-	<div class="usa-form--submission">
-		<input class="usa-button" type="submit" value={submit || 'Submit'} />
-	</div>
+	<ul class="usa-form--submission usa-button-group">
+		{back &&
+		<li class="usa-button-group__item">
+			<button class="usa-button usa-button--outline" onclick="history.back()">Back</button>
+		</li>
+		}
+		<li class="usa-button-group__item">
+			<input class="usa-button" type="submit" value={submit || 'Submit'} />
+		</li>
+	</ul>
 </form>
