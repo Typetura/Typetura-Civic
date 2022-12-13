@@ -1,41 +1,42 @@
 ---
 const { label = 'Text input', input = 'input', hint, max = '40' } = Astro.props;
+const id = 'a' + Math.random().toString(16).slice(2);
 ---
 <div class="usa-character-count">
     {(input === 'textarea') ?
     (
         <div class="usa-form-group">
-            <label class="usa-label" for="with-hint-input">{label}</label>
+            <label class="usa-label" for={`${id}`}>{label}</label>
             {hint &&
-                <span id="with-hint-input-hint" class="usa-hint">{hint}</span>
+                <span id={`${id}-hint`} class="usa-hint">{hint}</span>
             }
             <input
                 class="usa-input usa-character-count__field"
-                id="with-hint-input"
+                id={`${id}`}
                 maxlength={max}
-                name="with-hint-input"
-                aria-describedby="with-hint-input-info with-hint-input-hint"
+                name={`${id}`}
+                aria-describedby={`${id}-info ${id}-hint`}
             />
         </div>
-        <span id="with-hint-input-info" class="usa-character-count__message">You can enter up to {max} characters</span>
+        <span id={`${id}-info`} class="usa-character-count__message">You can enter up to {max} characters</span>
         )
     :
     (
     <div class="usa-form-group">
-        <label class="usa-label" for="with-hint-input">{label}</label>
+        <label class="usa-label" for={`${id}`}>{label}</label>
         {hint &&
-            <span id="with-hint-input-hint" class="usa-hint">{hint}</span>
+            <span id={`${id}-hint`} class="usa-hint">{hint}</span>
         }
       <textarea
         class="usa-textarea usa-character-count__field"
-        id="with-hint-textarea"
+        id={`${id}`}
         maxlength={max}
-        name="with-hint-textarea"
+        name={`${id}`}
         rows="5"
-        aria-describedby="with-hint-textarea-info with-hint-textarea-hint"
+        aria-describedby={`${id}-info ${id}-hint`}
       ></textarea>
     </div>
-    <span id="with-hint-textarea-info" class="usa-character-count__message">You can enter up to 50 characters</span>
+    <span id={`${id}-info`} class="usa-character-count__message">You can enter up to {max} characters</span>
     )
     }
 </div>
