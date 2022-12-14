@@ -1,8 +1,8 @@
 ---
-const { action, onsubmit, method, submit, back } = Astro.props;
+const { action, onsubmit, oninput, method, submit, back } = Astro.props;
 ---
 
-<form class="usa-form" action={action} method={method} onsubmit={onsubmit}>
+<form class="usa-form" action={action} method={method} onsubmit={onsubmit} oninput={oninput}>
 	<slot />
 	<ul class="usa-form--submission usa-button-group">
 		{back &&
