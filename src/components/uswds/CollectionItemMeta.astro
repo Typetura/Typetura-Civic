@@ -1,0 +1,22 @@
+---
+const { newtag, tag, link } = Astro.props;
+let classList = 'usa-collection__meta-item';
+if (tag) {
+	classList = classList + ' usa-tag';
+}
+if (newtag) {
+	classList = classList + ' usa-tag usa-tag--new';
+}
+---
+
+<li class={classList}>
+	{
+		link ? (
+			<a href={link}>
+				<slot />
+			</a>
+		) : (
+			<slot />
+		)
+	}
+</li>

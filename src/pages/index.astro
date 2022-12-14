@@ -1,12 +1,35 @@
 ---
 import CharacterCount from '@component/uswds/CharacterCount.astro';
 import Checkbox from '@component/uswds/Checkbox.astro';
+import Collection from '@component/uswds/Collection.astro';
+import CollectionItem from '@component/uswds/CollectionItem.astro';
+import CollectionItemMeta from '@component/uswds/CollectionItemMeta.astro';
 import Form from '@component/uswds/Form.astro';
 import Layout from '@layout/Default.astro';
 import Fieldset from '@uswds/Fieldset.astro';
 ---
 
 <Layout title="home">
+	<Collection>
+		<CollectionItem
+			title="Title goes here"
+			link="#"
+			by="Sondra Ainsworth and Constance Lu"
+			month="December"
+			day="23"
+			calendar
+		>
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum adipisci officia magni
+			consequatur tenetur ipsa illum fuga eum cumque odio reiciendis neque, quod est provident
+			eligendi assumenda. Pariatur, recusandae nulla.
+			<div slot="meta">
+				<CollectionItemMeta tag newtag>thing</CollectionItemMeta>
+				<CollectionItemMeta tag>thing</CollectionItemMeta>
+				<CollectionItemMeta tag>thing</CollectionItemMeta>
+			</div>
+		</CollectionItem>
+	</Collection>
+
 	<Form action="javascript:null;">
 		<Fieldset>
 			<Checkbox

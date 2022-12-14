@@ -1,0 +1,52 @@
+---
+const { title, link, month, day, year, img, alt, by, utc, calendar } = Astro.props;
+const utcFormat = '2020-09-17T12:00:00+01:00';
+---
+
+<li class="usa-collection__item">
+	{
+		calendar && (
+			<div class="usa-collection__calendar-date">
+				<time datetime={utcFormat}>
+					<span class="usa-collection__calendar-date-month">
+						{month.substring(0, 3).toUpperCase()}
+					</span>
+					{day && <span class="usa-collection__calendar-date-day">{day}</span>}
+				</time>
+			</div>
+		)
+	}
+	{img && <img class="usa-collection__img" src={img} alt={alt} />}
+	<div class="usa-collection__body">
+		<h3 class="usa-collection__heading">
+			{
+				link ? (
+					<a class="usa-link" href={link}>
+						{title}
+					</a>
+				) : (
+					<>{title}</>
+				)
+			}
+		</h3>
+		<p class="usa-collection__description">
+			<slot />
+		</p>
+		<ul class="usa-collection__meta" aria-label="More information">
+			{by && <li class="usa-collection__meta-item">By {by}</li>}
+			{
+				month && !calendar && (
+					<li class="usa-collection__meta-item">
+						<time datetime={utcFormat}>
+							{month} {day}
+							{year && <>, {year}</>}
+						</time>
+					</li>
+				)
+			}
+		</ul>
+		<ul class="usa-collection__meta" aria-label="Topics">
+			<slot name="meta" />
+		</ul>
+	</div>
+</li>
