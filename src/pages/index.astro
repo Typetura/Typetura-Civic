@@ -1,11 +1,24 @@
 ---
 import CharacterCount from '@component/uswds/CharacterCount.astro';
+import Checkbox from '@component/uswds/Checkbox.astro';
 import Form from '@component/uswds/Form.astro';
 import Layout from '@layout/Default.astro';
+import Fieldset from '@uswds/Fieldset.astro';
 ---
 
 <Layout title="home">
-	<Form action="javascript:null;" onsubmit="javascript:console.log(formData(this))">
+	<Form action="javascript:null;">
+		<Fieldset>
+			<Checkbox
+				name="people"
+				value="this-is-a-label"
+				label="This is a label"
+				tile
+				description="This is a description"
+				checked
+			/>
+			<Checkbox name="people" value="another-checkbox" label="This is a label" tile />
+		</Fieldset>
 		<CharacterCount name="character-count" />
 	</Form>
 </Layout>

@@ -20,7 +20,8 @@
       "@helper/*": ["src/components/helpers/*"],
       "@uswds/*": ["src/components/uswds/*"],
       "@civic/*": ["src/components/civic/*"],
-      "@layout/*": ["src/layouts/*"]
+      "@layout/*": ["src/layouts/*"],
+      "@js/*": ["src/scripts/*"]
     }
   }
 }

@@ -1,4 +1,4 @@
-function formData(obj) {
+export function formData(obj) {
     const formElements = Array.from(obj.elements);
     const formValues = {};
     formElements.forEach(element => {
@@ -7,4 +7,4 @@ function formData(obj) {
         }
     });
     return formValues;
-}
+};

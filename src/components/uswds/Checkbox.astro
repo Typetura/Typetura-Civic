@@ -1,0 +1,23 @@
+---
+const { label, tile, description, checked, disabled, name, value } = Astro.props;
+let classListInput = 'usa-checkbox__input';
+if (tile) {
+	classListInput = classListInput + ` usa-checkbox__input--tile`;
+}
+---
+
+<div class="usa-checkbox">
+	<input
+		class={classListInput}
+		id={`${name}-${value}`}
+		type="checkbox"
+		name={name}
+		value={value}
+		checked={checked}
+		disabled={disabled}
+	/>
+	<label class="usa-checkbox__label" for={`${name}-${value}`}
+		>{label}
+		{description && <span class="usa-checkbox__label-description">{description}</span>}
+	</label>
+</div>

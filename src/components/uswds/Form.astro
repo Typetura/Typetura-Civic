@@ -5,10 +5,14 @@ const { action, onsubmit, oninput, method, submit, back } = Astro.props;
 <form class="usa-form" action={action} method={method} onsubmit={onsubmit} oninput={oninput}>
 	<slot />
 	<ul class="usa-form--submission usa-button-group">
-		{back &&
-		<li class="usa-button-group__item">
-			<button class="usa-button usa-button--outline" onclick="history.back()">Back</button>
-		</li>
+		{
+			back && (
+				<li class="usa-button-group__item">
+					<button class="usa-button usa-button--outline" onclick="history.back()">
+						Back
+					</button>
+				</li>
+			)
 		}
 		<li class="usa-button-group__item">
 			<input class="usa-button" type="submit" value={submit || 'Submit'} />
@@ -16,15 +20,17 @@ const { action, onsubmit, oninput, method, submit, back } = Astro.props;
 	</ul>
 </form>
 
-<script is:inline>
+<!-- GET HELP TO MOVE THIS TO AN ESM HELPER -->
+<!-- <script is:inline>
 	function formData(obj) {
 		const formElements = Array.from(obj.elements);
 		const formValues = {};
-		formElements.forEach(element => {
-			if(element.name) {
+		formElements.forEach((element) => {
+			if (element.name) {
+				if(element.)
 				formValues[element.name] = element.value;
 			}
 		});
 		return formValues;
 	}
-</script>
+</script> -->

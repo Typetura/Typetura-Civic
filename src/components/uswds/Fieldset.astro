@@ -1,0 +1,8 @@
+---
+const { legend } = Astro.props;
+---
+
+<fieldset class="usa-fieldset">
+	{legend && <legend class="usa-legend">{legend}</legend>}
+	<slot />
+</fieldset>
