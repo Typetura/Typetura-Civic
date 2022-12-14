@@ -1,17 +1,24 @@
 ---
-const { title, link, month, day, year, img, alt, by, utc, calendar } = Astro.props;
-const utcFormat = '2020-09-17T12:00:00+01:00';
+const { title, link, img, alt, by, date, calendar } = Astro.props;
 ---
 
 <li class="usa-collection__item">
 	{
-		calendar && (
+		calendar && date && (
 			<div class="usa-collection__calendar-date">
-				<time datetime={utcFormat}>
+				<time datetime={date}>
 					<span class="usa-collection__calendar-date-month">
-						{month.substring(0, 3).toUpperCase()}
+						{new Intl.DateTimeFormat('en-US', {
+							month: 'short',
+						})
+							.format(date)
+							.toUpperCase()}
 					</span>
-					{day && <span class="usa-collection__calendar-date-day">{day}</span>}
+					<span class="usa-collection__calendar-date-day">
+						{new Intl.DateTimeFormat('en-US', {
+							day: 'numeric',
+						}).format(date)}
+					</span>
 				</time>
 			</div>
 		)
@@ -35,12 +42,18 @@ const utcFormat = '2020-09-17T12:00:00+01:00';
 		<ul class="usa-collection__meta" aria-label="More information">
 			{by && <li class="usa-collection__meta-item">By {by}</li>}
 			{
-				month && !calendar && (
+				date && !calendar && (
 					<li class="usa-collection__meta-item">
-						<time datetime={utcFormat}>
-							{month} {day}
-							{year && <>, {year}</>}
-						</time>
+						{new Intl.DateTimeFormat('en-US', {
+							month: 'long',
+						}).format(date)}
+						{new Intl.DateTimeFormat('en-US', {
+							day: 'numeric',
+						}).format(date)}
+						,
+						{new Intl.DateTimeFormat('en-US', {
+							year: 'numeric',
+						}).format(date)}
 					</li>
 				)
 			}
