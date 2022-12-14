@@ -4,6 +4,7 @@ import Checkbox from '@component/uswds/Checkbox.astro';
 import Collection from '@component/uswds/Collection.astro';
 import CollectionItem from '@component/uswds/CollectionItem.astro';
 import CollectionItemMeta from '@component/uswds/CollectionItemMeta.astro';
+import ComboBox from '@component/uswds/ComboBox.astro';
 import Form from '@component/uswds/Form.astro';
 import Layout from '@layout/Default.astro';
 import Fieldset from '@uswds/Fieldset.astro';
@@ -24,6 +25,13 @@ import Fieldset from '@uswds/Fieldset.astro';
 	</Collection>
 
 	<Form action="javascript:null;">
+		<ComboBox name="combo-box" label="Combo box">
+			<option value="thing">Thing</option>
+			<option value="thing">Thing</option>
+			<option value="thing">Thing</option>
+			<option value="thing">Thing</option>
+			<option value="thing">Thing</option>
+		</ComboBox>
 		<Fieldset>
 			<Checkbox
 				name="people"

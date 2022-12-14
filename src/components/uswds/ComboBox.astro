@@ -1,0 +1,10 @@
+---
+const { label, name } = Astro.props;
+---
+
+<label class="usa-label" for={name}>{label}</label>
+<div class="usa-combo-box">
+	<select class="usa-select" name={name} id={name}>
+		<slot />
+	</select>
+</div>
