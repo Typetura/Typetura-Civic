@@ -17,7 +17,7 @@ const { action, onsubmit, method, submit, back } = Astro.props;
 </form>
 
 <script is:inline>
-	function form(obj) {
+	function formData(obj) {
 		const formElements = Array.from(obj.elements);
 		const formValues = {};
 		formElements.forEach(element => {
@@ -25,6 +25,6 @@ const { action, onsubmit, method, submit, back } = Astro.props;
 				formValues[element.name] = element.value;
 			}
 		});
-		console.log(formValues);
+		return formValues;
 	}
 </script>
