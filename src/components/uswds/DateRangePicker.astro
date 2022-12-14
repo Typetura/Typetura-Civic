@@ -1,0 +1,46 @@
+---
+const { startLabel, endLabel, startValue, endValue, name } = Astro.props;
+---
+
+<div class="usa-date-range-picker">
+	<div class="usa-form-group">
+		{
+			startLabel && (
+				<label class="usa-label" id={`${name}-start-label`} for={`${name}-start`}>
+					{startLabel}
+				</label>
+			)
+		}
+		<div class="usa-hint" id={`${name}-start-hint`}>mm/dd/yyyy</div>
+		<div class="usa-date-picker">
+			<input
+				class="usa-input"
+				id={`${name}-start`}
+				name={`${name}-start`}
+				aria-labelledby={`#{name}-start-label`}
+				aria-describedby={`#{name}-start-hint`}
+				value={startValue}
+			/>
+		</div>
+	</div>
+	<div class="usa-form-group">
+		{
+			endLabel && (
+				<label class="usa-label" id={`${name}-end-label`} for={`${name}-end`}>
+					{endLabel}
+				</label>
+			)
+		}
+		<div class="usa-hint" id={`${name}-end-hint`}>mm/dd/yyyy</div>
+		<div class="usa-date-picker">
+			<input
+				class="usa-input"
+				id={`${name}-end`}
+				name={`${name}-end`}
+				aria-labelledby={`#{name}-end-label`}
+				aria-describedby={`#{name}-end-hint`}
+				value={endValue}
+			/>
+		</div>
+	</div>
+</div>
