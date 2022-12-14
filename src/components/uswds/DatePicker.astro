@@ -1,0 +1,24 @@
+---
+const { label, name, value } = Astro.props;
+---
+
+<div class="usa-form-group">
+	{
+		label && (
+			<label class="usa-label" id={`${name}-label`} for={name}>
+				{label}
+			</label>
+		)
+	}
+	<div class="usa-hint" id={`${name}-hint`}>mm/dd/yyyy</div>
+	<div class="usa-date-picker">
+		<input
+			class="usa-input"
+			id={name}
+			name={name}
+			aria-labelledby={`${name}-label`}
+			aria-describedby={`${name}-hint`}
+			value={value}
+		/>
+	</div>
+</div>
