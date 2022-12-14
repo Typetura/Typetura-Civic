@@ -5,7 +5,7 @@ import Layout from '@layout/Default.astro';
 ---
 
 <Layout title="home">
-	<Form>
-		<CharacterCount />
+	<Form action="javascript:null;" onsubmit="javascript:form(this)">
+		<CharacterCount name="character-count" />
 	</Form>
 </Layout>

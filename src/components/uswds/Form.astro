@@ -1,11 +1,8 @@
 ---
-import Button from './Button.astro';
-import ButtonGroup from './ButtonGroup.astro';
-
-const { action, method, submit, back } = Astro.props;
+const { action, onsubmit, method, submit, back } = Astro.props;
 ---
 
-<form class="usa-form" action={action} method={method}>
+<form class="usa-form" action={action} method={method} onsubmit={onsubmit}>
 	<slot />
 	<ul class="usa-form--submission usa-button-group">
 		{back &&
@@ -18,3 +15,16 @@ const { action, method, submit, back } = Astro.props;
 		</li>
 	</ul>
 </form>
+
+<script is:inline>
+	function form(obj) {
+		const formElements = Array.from(obj.elements);
+		const formValues = {};
+		formElements.forEach(element => {
+			if(element.name) {
+				formValues[element.name] = element.value;
+			}
+		});
+		console.log(formValues);
+	}
+</script>
