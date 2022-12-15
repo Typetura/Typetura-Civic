@@ -1,0 +1,11 @@
+---
+const { big, new } = Astro.props;
+let classList = 'usa-tag';
+if(big) {
+  classList = classList + ' usa-tag--big';
+}
+if(new) {
+  classList = classList + ' usa-tag--new';
+}
+---
+<span class={classList}><slot /></span>

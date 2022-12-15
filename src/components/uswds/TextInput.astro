@@ -1,0 +1,18 @@
+---
+const { label, name, disabled, error, success, textarea } = Astro.props;
+---
+
+{
+	label && (
+		<label class="usa-label" for={name}>
+			{label}
+		</label>
+	)
+}
+{
+	textarea ? (
+		<textarea class="usa-textarea" id={name} name={name} disabled={disabled} />
+	) : (
+		<input class="usa-input" id={name} name={name} disabled={disabled} />
+	)
+}

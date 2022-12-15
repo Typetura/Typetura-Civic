@@ -1,0 +1,94 @@
+---
+import Button from './Button.astro';
+import Icon from './Icon.astro';
+
+const { name = 'modal', heading, actions = [], large, forceaction } = Astro.props;
+
+let classList = 'usa-modal';
+if (large) {
+	classList = classList + ' usa-modal--lg';
+}
+
+// Data structutre:
+// actions={[
+// 			{
+// 				name: 'Tace action',
+// 				link: './back',
+// 			},
+// 			{
+// 				name: 'Next',
+// 				link: './forward',
+// 				outline: true,
+// 			},
+// 			{
+// 				name: 'Cancel',
+// 				link: './click',
+// 				color: 'secondary',
+// 			},
+// 		]}
+---
+
+<a href={`#${name}`} class="usa-button" aria-controls={name} data-open-modal>Open default modal</a>
+<div
+	class={classList}
+	id={name}
+	aria-labelledby={`${name}-heading`}
+	aria-describedby={`${name}-description`}
+	data-force-action={forceaction}
+>
+	<div class="usa-modal__content">
+		<div class="usa-modal__main">
+			{
+				heading && (
+					<h2 class="usa-modal__heading" id={`${name}-heading`}>
+						{heading}
+					</h2>
+				)
+			}
+			<div class="usa-prose">
+				<slot />
+			</div>
+			<div class="usa-modal__footer">
+				<ul class="usa-button-group">
+					{
+						actions.map((action) => (
+							<li class="usa-button-group__item">
+								<Button
+									name={action.name}
+									link={action.link}
+									color={action.color}
+									outline={action.outline}
+								/>
+							</li>
+						))
+					}
+					{
+						!forceaction && (
+							<li class="usa-button-group__item">
+								<button
+									type="button"
+									class="usa-button usa-button--unstyled padding-105 text-center"
+									data-close-modal
+								>
+									Go back
+								</button>
+							</li>
+						)
+					}
+				</ul>
+			</div>
+		</div>
+		{
+			!forceaction && (
+				<button
+					type="button"
+					class="usa-button usa-modal__close"
+					aria-label="Close this window"
+					data-close-modal
+				>
+					<Icon icon="close" />
+				</button>
+			)
+		}
+	</div>
+</div>
