@@ -1,0 +1,11 @@
+---
+import Button from "./Button.astro";
+
+const { language, lang, onclick } = Astro.props;
+---
+<div class="usa-language-container">
+    <button type="button" class="usa-button" role="button" onclick={onclick}>
+      <span lang={lang} xml:lang={lang}>{language}</span>
+    </button>
+  </div>
+  

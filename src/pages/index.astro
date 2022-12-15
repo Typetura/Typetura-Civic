@@ -9,11 +9,13 @@ import Icon from '@component/uswds/Icon.astro';
 import IconList from '@component/uswds/IconList.astro';
 import IconListItem from '@component/uswds/IconListItem.astro';
 import InputMask from '@component/uswds/InputMask.astro';
+import LanguageSelector from '@component/uswds/LanguageSelector.astro';
 import Layout from '@layout/Default.astro';
 import Fieldset from '@uswds/Fieldset.astro';
 ---
 
 <Layout title="home">
+	<LanguageSelector language="English" lang="en" />
 	<Form action="javascript:null;">
 		<FileInput format={['pdf']} error="Oh no! There was an error!" />
 		<DatePicker name="date-picker" label="Date picker" />

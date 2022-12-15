@@ -1,0 +1,8 @@
+---
+const { href } = Astro.props;
+let classList = "usa-link";
+if(href.includes('://')) {
+    classList = classList + " usa-link--external"
+}
+---
+<a class={classList} href="{href}><slot /></a>
