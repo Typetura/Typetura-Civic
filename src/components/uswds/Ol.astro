@@ -1,0 +1,10 @@
+---
+const { unstyled } = Astro.props;
+classList = "usa-list"
+if(unstyled) {
+    classList = classList + " usa-list--unstyled";
+}
+---
+<ol class={classList}>
+    <slot />
+</ol>
