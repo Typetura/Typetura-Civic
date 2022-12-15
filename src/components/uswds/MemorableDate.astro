@@ -1,0 +1,62 @@
+---
+const { name, legend, hint, valueMonth, valueDay, valueYear } = Astro.props;
+---
+<fieldset class="usa-fieldset">
+    <legend class="usa-legend">{legend}</legend>
+    {hint &&
+        <span class="usa-hint" id={`${name}-hint`}>{hint}</span>
+    }
+    <div class="usa-memorable-date">
+      <div class="usa-form-group usa-form-group--month usa-form-group--select">
+        <label class="usa-label" for={`${name}-month`}>Month</label>
+        <select
+          class="usa-select"
+          id={`${name}-month`}
+          name={`${name}-month`}
+          aria-describedby={`${name}-hint`}
+        >
+          <option value>Select</option>
+          <option value="1">01 - January</option>
+          <option value="2">02 - February</option>
+          <option value="3">03 - March</option>
+          <option value="4">04 - April</option>
+          <option value="5">05 - May</option>
+          <option value="6">06 - June</option>
+          <option value="7">07 - July</option>
+          <option value="8">08 - August</option>
+          <option value="9">09 - September</option>
+          <option value="10">10 - October</option>
+          <option value="11">11 - November</option>
+          <option value="12">12 - December</option>
+        </select>
+      </div>
+      <div class="usa-form-group usa-form-group--day">
+        <label class="usa-label" for={`${name}-day`}>Day</label>
+        <input
+          class="usa-input"
+          aria-describedby={`${name}-hint`}
+          id={`${name}-day`}
+          name={`${name}-day`}
+          maxlength="2"
+          pattern="[0-9]*"
+          inputmode="numeric"
+          value={valueDay}
+        />
+      </div>
+      <div class="usa-form-group usa-form-group--year">
+        <label class="usa-label" for={`${name}-year`}>Year</label>
+        <input
+          class="usa-input"
+          aria-describedby={`${name}-hint`}
+          id={`${name}-year`}
+          name={`${name}-year`}
+          minlength="4"
+          maxlength="4"
+          pattern="[0-9]*"
+          inputmode="numeric"
+          value={valueYear}
+        />
+      </div>
+    </div>
+  </fieldset>
+  
