@@ -1,0 +1,66 @@
+---
+const { label, name, format, multiple, error } = Astro.props;
+
+function classList(classList) {
+	if (error) {
+		return `${classList} ${classList}--error`;
+	}
+	return `${classList}`;
+}
+
+let formatAccept = false;
+let formatText = '';
+
+if (format === 'image') {
+	formatAccept = 'image/*';
+	formatText = format;
+} else if (format) {
+	formatAccept = '';
+	for (let i = 0; i < format.length; i++) {
+		if (i === 0) {
+			formatAccept = `.${format[i]}`;
+		} else {
+			formatAccept = `${formatAccept}, .${format[i]}`;
+		}
+		if (format.length > 1) {
+			if (i != format.length - 1) {
+				formatText = formatText + `${format[i]}, `;
+			} else {
+				formatText = formatText + `or ${format[i]}`;
+			}
+		} else {
+			formatText = format[i];
+		}
+	}
+}
+---
+
+<div class={classList('usa-form-group')}>
+	{
+		label && (
+			<label class={classList('usa-label')} for={name}>
+				Input accepts only specific file types
+			</label>
+		)
+	}
+	<span class="usa-hint" id="file-input-specific-hint"
+		>Select {!multiple && <>a</>}{format === 'image' && <>n</>}
+		{formatText} file{multiple && <>s</>}
+	</span>
+	{
+		error && (
+			<span class="usa-error-message" id="file-input-error-alert">
+				{error}
+			</span>
+		)
+	}
+	<input
+		id={name}
+		class="usa-file-input"
+		type="file"
+		name={name}
+		aria-describedby=`${name}-hint`
+		accept={formatAccept}
+		multiple={multiple}
+	/>
+</div>
