@@ -1,0 +1,6 @@
+---
+const { icon="person" } = Astro.props;
+---
+<svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+    <use xlink:href={`/assets/img/sprite.svg#${icon}`}></use>
+</svg>

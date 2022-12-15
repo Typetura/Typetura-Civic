@@ -1,0 +1,20 @@
+---
+const { name, label, hint, placeholder, pattern, inputmode } = Astro.props;
+---
+<label class="usa-label" for={name}>{label}</label>
+{hint &&
+  <div class="usa-hint" id={`${name}-hint`}>{hint}</div>
+}
+<div class="usa-input-group">
+  <input
+    id={name}
+    name={name}
+    class="usa-input"
+    pattern={pattern}
+    inputmode={inputmode}
+    placeholder={placeholder}
+  />
+  <div class="usa-input-suffix" aria-hidden="true">
+    <slot />
+  </div>
+</div>

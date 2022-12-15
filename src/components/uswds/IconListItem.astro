@@ -1,0 +1,17 @@
+---
+const { icon="check_circle", color } = Astro.props;
+let colorClass = '';
+if(color) {
+    colorClass = `text-${color}`;
+}
+---
+<li class="usa-icon-list__item">
+    <div class={`usa-icon-list__icon ${colorClass}`}>
+      <svg class="usa-icon" aria-hidden="true" role="img">
+        <use xlink:href={`/assets/img/sprite.svg#${icon}`}></use>
+      </svg>
+    </div>
+    <div class="usa-icon-list__content">
+      <slot />
+    </div>
+  </li>
