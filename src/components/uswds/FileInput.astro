@@ -1,5 +1,5 @@
 ---
-const { label, name, format, multiple, error } = Astro.props;
+const { label, name, format, multiple, error, disabled } = Astro.props;
 
 function classList(classList) {
 	if (error) {
@@ -62,5 +62,6 @@ if (format === 'image') {
 		aria-describedby=`${name}-hint`
 		accept={formatAccept}
 		multiple={multiple}
+		disabled={disabled}
 	/>
 </div>
