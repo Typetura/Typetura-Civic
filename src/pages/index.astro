@@ -11,6 +11,7 @@ import IconListItem from '@component/uswds/IconListItem.astro';
 import InputMask from '@component/uswds/InputMask.astro';
 import LanguageSelector from '@component/uswds/LanguageSelector.astro';
 import Modal from '@component/uswds/Modal.astro';
+import TextInput from '@component/uswds/TextInput.astro';
 import Layout from '@layout/Default.astro';
 import Fieldset from '@uswds/Fieldset.astro';
 ---
@@ -21,6 +22,7 @@ import Fieldset from '@uswds/Fieldset.astro';
 	</Modal>
 	<LanguageSelector language="English" lang="en" />
 	<Form action="javascript:null;">
+		<TextInput name="text-input" label="This is a text input" />
 		<FileInput format={['pdf']} error="Oh no! There was an error!" />
 		<DatePicker name="date-picker" label="Date picker" />
 		<ComboBox name="combo-box" label="Combo box">

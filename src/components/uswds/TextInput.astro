@@ -1,5 +1,16 @@
 ---
-const { label, name, disabled, error, success, textarea } = Astro.props;
+const { label, name, disabled, error, success, textarea, value, placeholder } = Astro.props;
+let classRoot = 'usa-input';
+if (textarea) {
+	classRoot = 'usa-textarea';
+}
+let classList = `${classRoot}`;
+if (error) {
+	classList = classList + ` ${classRoot}--error`;
+}
+if (success) {
+	classList = classList + ` ${classRoot}--success`;
+}
 ---
 
 {
@@ -11,8 +22,22 @@ const { label, name, disabled, error, success, textarea } = Astro.props;
 }
 {
 	textarea ? (
-		<textarea class="usa-textarea" id={name} name={name} disabled={disabled} />
+		<textarea
+			class={classList}
+			id={name}
+			name={name}
+			disabled={disabled}
+			value={value}
+			placeholder={placeholder}
+		/>
 	) : (
-		<input class="usa-input" id={name} name={name} disabled={disabled} />
+		<input
+			class={classList}
+			id={name}
+			name={name}
+			disabled={disabled}
+			value={value}
+			placeholder={placeholder}
+		/>
 	)
 }
