@@ -1,0 +1,27 @@
+---
+const { name, label, value, disabled, minTime, maxTime, step } = Astro.props;
+---
+
+<div class="usa-form-group">
+	{
+		label && (
+			<label class="usa-label" id={`${name}-label`} for={name}>
+				{label}
+			</label>
+		)
+	}
+	<div class="usa-hint" id={`${name}-hint`}>hh:mm</div>
+	<div class="usa-time-picker">
+		<input
+			class="usa-input"
+			id={name}
+			name={name}
+			aria-describedby={`${name}-label ${name}-hint`}
+			value={value}
+			disabled={disabled}
+			data-min-time={minTime}
+			data-max-time={maxTime}
+			data-step={step}
+		/>
+	</div>
+</div>
