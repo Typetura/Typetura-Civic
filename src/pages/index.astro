@@ -1,48 +1,35 @@
 ---
-import CharacterCount from '@component/uswds/CharacterCount.astro';
-import Checkbox from '@component/uswds/Checkbox.astro';
-import ComboBox from '@component/uswds/ComboBox.astro';
-import DatePicker from '@component/uswds/DatePicker.astro';
-import FileInput from '@component/uswds/FileInput.astro';
 import Form from '@component/uswds/Form.astro';
-import Icon from '@component/uswds/Icon.astro';
-import IconList from '@component/uswds/IconList.astro';
-import IconListItem from '@component/uswds/IconListItem.astro';
-import InputMask from '@component/uswds/InputMask.astro';
-import LanguageSelector from '@component/uswds/LanguageSelector.astro';
-import Modal from '@component/uswds/Modal.astro';
-import TextInput from '@component/uswds/TextInput.astro';
+import RadioButtons from '@component/uswds/RadioButtons.astro';
 import Layout from '@layout/Default.astro';
-import Fieldset from '@uswds/Fieldset.astro';
 ---
 
 <Layout title="home">
-	<Modal heading="Modal heading!">
-		<p>Modal content goes here!</p>
-	</Modal>
-	<LanguageSelector language="English" lang="en" />
 	<Form action="javascript:null;">
-		<TextInput name="text-input" label="This is a text input" />
-		<FileInput format={['pdf']} error="Oh no! There was an error!" />
-		<DatePicker name="date-picker" label="Date picker" />
-		<ComboBox name="combo-box" label="Combo box">
-			<option value="thing">Thing</option>
-			<option value="thing">Thing</option>
-			<option value="thing">Thing</option>
-			<option value="thing">Thing</option>
-			<option value="thing">Thing</option>
-		</ComboBox>
-		<Fieldset>
-			<Checkbox
-				name="people"
-				value="this-is-a-label"
-				label="This is a label"
-				tile
-				description="This is a description"
-				checked
-			/>
-			<Checkbox name="people" value="another-checkbox" label="This is a label" tile />
-		</Fieldset>
-		<CharacterCount name="character-count" />
+		<RadioButtons
+			label="This is a label for this component"
+			name="historical-figures"
+			buttons={[
+				{
+					label: 'Sojourner Truth',
+					value: 'sojourner-truth',
+					checked: true,
+				},
+				{
+					label: 'Frederick Douglass',
+					value: 'frederick-douglass',
+					description: 'This radio button has a description',
+				},
+				{
+					label: 'Booker T. Washington',
+					value: 'bootker-t-washington',
+				},
+				{
+					label: 'George Washington Carver',
+					value: 'george-washington-carver',
+					disabled: true,
+				},
+			]}
+		/>
 	</Form>
 </Layout>
