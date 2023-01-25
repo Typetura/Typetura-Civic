@@ -1,0 +1,163 @@
+<!-- <template>
+  <nav class="pagination">
+    <ul>
+      <li class="pagination__arrows">
+        <template v-if="currentPage <= 1">
+          <span class="hidden">Previous</span>
+        </template>
+        <nuxt-link v-else :to="getPageRoute(currentPage - 1)">
+          <span class="hidden">Previous</span>
+        </nuxt-link>
+      </li>
+
+      <template v-if="total < 10">
+        <li
+          v-for="pageNumber in total"
+          :key="pageNumber"
+          :class="{ pagination__current: isCurrentPage(pageNumber) }"
+        >
+          <template v-if="isCurrentPage(pageNumber)">{{ pageNumber }}</template>
+          <nuxt-link v-else :to="getPageRoute(pageNumber)">{{
+            pageNumber
+          }}</nuxt-link>
+        </li>
+      </template>
+
+      <template v-else>
+        <li :class="{ pagination__current: isCurrentPage(1) }">
+          <template v-if="isCurrentPage(1)">{{ 1 }}</template>
+          <nuxt-link v-else :to="getPageRoute(1)">{{ 1 }}</nuxt-link>
+        </li>
+        <template v-if="currentPage < 6">
+          <li
+            v-for="pageNumber in 5"
+            :key="earlyPageNumber(pageNumber)"
+            :class="{
+              pagination__current: isCurrentPage(earlyPageNumber(pageNumber)),
+            }"
+          >
+            <template v-if="isCurrentPage(earlyPageNumber(pageNumber))">{{
+              earlyPageNumber(pageNumber)
+            }}</template>
+            <nuxt-link v-else :to="getPageRoute(earlyPageNumber(pageNumber))">{{
+              earlyPageNumber(pageNumber)
+            }}</nuxt-link>
+          </li>
+          …
+        </template>
+        <template v-if="currentPage > 5 && currentPage < total - 5">
+          …
+          <li
+            v-for="pageNumber in 5"
+            :key="middlePageNumber(pageNumber)"
+            :class="{
+              pagination__current: isCurrentPage(middlePageNumber(pageNumber)),
+            }"
+          >
+            <template v-if="isCurrentPage(middlePageNumber(pageNumber))">{{
+              middlePageNumber(pageNumber)
+            }}</template>
+            <nuxt-link
+              v-else
+              :to="getPageRoute(middlePageNumber(pageNumber))"
+              >{{ middlePageNumber(pageNumber) }}</nuxt-link
+            >
+          </li>
+          …
+        </template>
+        <template v-if="currentPage > total - 6">
+          …
+          <li
+            v-for="pageNumber in 5"
+            :key="latePageNumber(pageNumber)"
+            :class="{
+              pagination__current: isCurrentPage(latePageNumber(pageNumber)),
+            }"
+          >
+            <template v-if="isCurrentPage(latePageNumber(pageNumber))">{{
+              latePageNumber(pageNumber)
+            }}</template>
+            <nuxt-link v-else :to="getPageRoute(latePageNumber(pageNumber))">{{
+              latePageNumber(pageNumber)
+            }}</nuxt-link>
+          </li>
+        </template>
+
+        <li :class="{ pagination__current: isCurrentPage(total) }">
+          <template v-if="isCurrentPage(total)">{{ total }}</template>
+          <nuxt-link v-else :to="getPageRoute(total)">{{ total }}</nuxt-link>
+        </li>
+      </template>
+
+      <li class="pagination__arrows">
+        <template v-if="currentPage >= total">
+          <Icon icon="rightArrow" name="Next" />
+          <span class="hidden">Next</span>
+        </template>
+        <nuxt-link v-else :to="getPageRoute(currentPage + 1)">
+          <Icon icon="rightArrow" name="Next" />
+          <span class="hidden">Next</span>
+        </nuxt-link>
+      </li>
+    </ul>
+  </nav>
+</template>
+
+<script>
+import Icon from '@module/Icon'
+
+export default {
+  components: {
+    Icon,
+  },
+  watch: {
+    $route: {
+      handler(newValue, oldValue) {
+        const newPage = newValue.query[this.query] || 1
+        const oldPage = oldValue.query[this.query] || 1
+        if (newPage != oldPage) {
+          this.$emit('page-change', newPage)
+        }
+      },
+    },
+  },
+  methods: {
+    isCurrentPage(num) {
+      const currentPage = this.currentPage
+      return num == currentPage
+    },
+    getPageRoute(num) {
+      const route = { ...this.$route }
+      route.query = {
+        ...route.query,
+      }
+      route.query[this.query] = num
+      return route
+    },
+    earlyPageNumber(num) {
+      return num + 1
+    },
+    middlePageNumber(num) {
+      return num - 3 + this.currentPage
+    },
+    latePageNumber(num) {
+      return this.total + num - 6
+    },
+  },
+  computed: {
+    currentPage() {
+      return Number(this.$route.query[this.query]) || 1
+    },
+  },
+  props: {
+    total: {
+      type: Number,
+      required: true,
+    },
+    query: {
+      type: String,
+      default: 'page',
+    },
+  },
+}
+</script> -->

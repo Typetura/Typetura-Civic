@@ -27,38 +27,37 @@ const posts = (await Astro.glob('/src/pages/documentation/*.{md,mdx}')).sort(
 );
 
 let outline = [];
-posts.forEach(post => {
-    let thisPost = {};
-    let thisChildren = [];
-    thisPost.title = post.frontmatter.title;
-    thisPost.link = post.url;
-    thisPost.current = (post.url === frontmatter.url);
-    post.getHeadings().forEach(heading => {
-        let newHeading = {
-            title: heading.text,
-            link: `#${heading.slug}`,
-            children: []
-        }
-        if(heading.depth === 1 || heading.depth === 2) {
-            thisChildren.push(newHeading)
-        }
-        if(heading.depth === 3) {
-            let prevHeading = thisChildren[thisChildren.length - 1];
-            if(prevHeading) {
-                prevHeading.children.push(newHeading);
-            }
-        }
-    });
-    thisPost.children = thisChildren;
-    outline.push(thisPost);
+posts.forEach((post) => {
+	let thisPost = {};
+	let thisChildren = [];
+	thisPost.title = post.frontmatter.title;
+	thisPost.link = post.url;
+	thisPost.current = post.url === frontmatter.url;
+	post.getHeadings().forEach((heading) => {
+		let newHeading = {
+			title: heading.text,
+			link: `#${heading.slug}`,
+			children: [],
+		};
+		if (heading.depth === 1 || heading.depth === 2) {
+			thisChildren.push(newHeading);
+		}
+		if (heading.depth === 3) {
+			let prevHeading = thisChildren[thisChildren.length - 1];
+			if (prevHeading) {
+				prevHeading.children.push(newHeading);
+			}
+		}
+	});
+	thisPost.children = thisChildren;
+	outline.push(thisPost);
 });
 ---
 
 <html lang={astroConfig.lang}>
-  
 	<Head title={frontmatter.title} />
-	<body>
-        <Skipnav />
+	<body class="documentation-layout">
+		<Skipnav />
 		<Banner />
 		<Header />
 
@@ -67,15 +66,15 @@ posts.forEach(post => {
 				<div class="grid-row grid-gap">
 					<div class="usa-layout-docs__sidenav desktop:grid-col-3">
 						<nav aria-label="Secondary navigation">
-                            <Sidenav outline={outline} />
+							<Sidenav outline={outline} />
 						</nav>
 					</div>
 					<main
 						class="usa-layout-docs__main desktop:grid-col-9 usa-prose usa-layout-docs"
 						id="main-content"
 					>
-                        <h1>{frontmatter.title}</h1>
-                        <p class="usa-intro">{frontmatter.intro}</p>
+						<h1>{frontmatter.title}</h1>
+						<p class="usa-intro">{frontmatter.intro}</p>
 						<slot />
 					</main>
 				</div>

@@ -1,0 +1,28 @@
+.app-layout {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+
+	display: flex;
+	flex-direction: column;
+
+	overflow: hidden;
+	.usa-banner__inner,
+	.usa-nav-container,
+	.grid-container {
+		max-width: none;
+	}
+	&-main {
+		flex: 1;
+		overflow: auto;
+		padding-inline: 1rem;
+
+		display: grid;
+
+		@media (min-width: 64em) {
+			padding-inline: 2rem;
+		}
+	}
+}

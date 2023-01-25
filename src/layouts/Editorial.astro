@@ -1,0 +1,35 @@
+---
+import astroConfig from '@config';
+import Banner from '@uswds/Banner.astro';
+import Head from '@component/Head.astro';
+import Header from '@uswds/Header.astro';
+import Footer from '@uswds/Footer.astro';
+import Skipnav from '@uswds/Skipnav.astro';
+
+const { title } = Astro.props;
+---
+
+<html lang={astroConfig.lang}>
+	<Head title={title} />
+	<body class="editorial-layout">
+		<Skipnav />
+		<Banner />
+		<Header />
+
+		<div class="usa-section">
+			<div class="grid-container">
+				<div class="grid-row grid-gap">
+					<main class="grid-col-fill usa-prose" id="main-content">
+						<slot />
+					</main>
+				</div>
+			</div>
+		</div>
+
+		<Footer />
+
+		<script>
+			import '/node_modules/@uswds/uswds/dist/js/uswds.min.js';
+		</script>
+	</body>
+</html>
