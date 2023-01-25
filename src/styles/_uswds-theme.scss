@@ -1,4 +1,4 @@
-@use 'uswds-core' with (
+@use 'uswds-core' as uswds with (
 	$theme-image-path: '/assets/img',
 	$theme-font-path: '/assets/fonts',
 	$theme-show-compile-warnings: false,
