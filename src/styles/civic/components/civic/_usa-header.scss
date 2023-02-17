@@ -1,0 +1,24 @@
+@use 'uswds-core' as uswds;
+@use 'settings' as civic;
+
+.usa-header {
+    background-color: uswds.color(civic.$theme-header-background-color);
+    .usa-logo a {
+        @include uswds.set-text-from-bg(
+            $bg-color: civic.$theme-header-background-color,
+            $preferred-text-color: "primary",
+            $fallback-text-color: "white",
+        );
+    }
+    .usa-nav__link,
+    .usa-nav-link {
+        @include uswds.set-text-from-bg(
+            $bg-color: civic.$theme-header-background-color,
+            $preferred-text-color: "ink",
+            $fallback-text-color: "white",
+        );
+    }
+    .usa-header .usa-nav__primary.usa-nav__primary button[aria-expanded=false] span::after {
+        background-color: red;
+    }
+}

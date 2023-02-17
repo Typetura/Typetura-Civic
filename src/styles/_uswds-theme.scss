@@ -2,5 +2,22 @@
 	$theme-image-path: '/assets/img',
 	$theme-font-path: '/assets/fonts',
 	$theme-show-compile-warnings: false,
-	$theme-show-notifications: false
+	$theme-show-notifications: false,
+
+	// $theme-color-primary: #0074e0,
+	$theme-color-primary: #ad2305,
+
+	$theme-link-color: "primary",
+    $theme-banner-background-color: "primary",
+    // $theme-banner-link-color: "primary",
+	$theme-table-header-background-color: "primary",
+	// $theme-table-header-text-color: "white",
+);
+
+@use 'civic' as civic with (
+	$theme-header-background-color: "base-lightest",
+	$theme-footer-background-color: "primary",
+	$text-base-size: 16,
+	$text-headline-scale: 1,
+	$text-headline-ease: "linear",
 );
